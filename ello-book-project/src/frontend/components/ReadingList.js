@@ -11,7 +11,7 @@ const ReadingList = ({ readingList, onRemove }) => {
             sx={{ backgroundColor: '#FFFFFF', mb: 1, borderRadius: 1 }}
           >
             <ListItemAvatar>
-              <Avatar src={`/assets/${book.coverPhotoURL}`} />
+              <Avatar src={`../assets/${book.coverPhotoURL}`} />
             </ListItemAvatar>
             <ListItemText
               primary={book.title}

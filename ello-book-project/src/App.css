@@ -60,4 +60,14 @@
 .Toastify__toast-body {
   font-family: 'Mulish', sans-serif;
 }
+.search-container {
+  margin-bottom: 20px; 
+}
 
+.results-container {
+  margin-bottom: 20px;
+}
+
+.reading-list-container {
+  margin-bottom: 20px; 
+}
