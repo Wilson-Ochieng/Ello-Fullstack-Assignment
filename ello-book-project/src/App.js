@@ -65,6 +65,7 @@ const App = () => {
         fontSize={24}
         marginTop={10}
         marginBottom={5}
+        marginLeft={22}
         gutterBottom
       >
         Book Assignment View
