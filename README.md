@@ -13,8 +13,15 @@ Thanks for taking the time, and we hope to talk with you soon!
 
 1. clone the project using git command git clone git@github.com:Wilson-Ochieng/Ello-Fullstack-Assignment.git.
 2. cd into ello-book-project.
-3. run npm install
-4. run npm start.
+3. run 
+```bash
+npm install
+```
+
+3. run 
+```bash
+npm npm start
+```
 
 
 
