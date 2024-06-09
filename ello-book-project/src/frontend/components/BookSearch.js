@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box } from '@mui/material';
 
-const BookSearch = ({ onSearch }) => {
+const BookSearch = ({ onSearch, onClear }) => {
   const [query, setQuery] = useState('');
+  let searchTimeout;
 
-  const handleSearch = () => {
-    if(query.trim() !== ''){
-      onSearch(query);
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setQuery(value);
 
+    if (searchTimeout) {
+      clearTimeout(searchTimeout);
     }
-   
+
+    searchTimeout = setTimeout(() => {
+      if (value.trim() !== '') {
+        onSearch(value);
+      } else {
+        onClear();
+      }
+    }, 500);
   };
 
   return (
@@ -18,17 +28,9 @@ const BookSearch = ({ onSearch }) => {
         label="Search for books"
         variant="outlined"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        sx={{ backgroundColor: '#FFFFFF', width: '800px' }} 
+        onChange={handleInputChange}
+        sx={{ backgroundColor: '#FFFFFF', width: '800px' }}
       />
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleSearch}
-        sx={{ height: '3rem' }} 
-      >
-        Search
-      </Button>
     </Box>
   );
 };

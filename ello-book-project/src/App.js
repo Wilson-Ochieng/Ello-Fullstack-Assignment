@@ -29,6 +29,7 @@ const App = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+
   const handleSearch = (query) => {
     setSearchPerformed(true);
     const filteredBooks = data.books.filter((book) =>
@@ -50,6 +51,9 @@ const App = () => {
     setReadingList(readingList.filter((book) => book.title !== title));
     toast.success('Book removed successfully');
   };
+  const handleClearSearchResults = () => {
+    setSearchResults([]); 
+  };
 
   return (
     <Container>
@@ -67,7 +71,7 @@ const App = () => {
       </Typography>
       <Box display="flex" flexDirection="column" alignItems="center">
         <Box className="search-container">
-          <BookSearch onSearch={handleSearch} />
+        <BookSearch onSearch={handleSearch} onClear={handleClearSearchResults} />
         </Box>
         <Box display="flex" flexDirection="row" justifyContent="center">
           <Box className="results-container" mr={2}>
