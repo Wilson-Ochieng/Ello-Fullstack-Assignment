@@ -39,12 +39,12 @@ const BookSearch = ({ books, onSearch, onClear }) => {
   };
 
   return (
-    <Box 
-      display="flex" 
-      alignItems="center" 
-      gap={2} 
-      mt={2} 
-      flexDirection={isMobile ? 'column' : 'row'} 
+    <Box
+      display="flex"
+      alignItems="center"
+      gap={2}
+      mt={2}
+      flexDirection={isMobile ? 'column' : 'row'}
       sx={{ px: isMobile ? 8 : 4 }}
     >
       <Autocomplete
@@ -52,12 +52,12 @@ const BookSearch = ({ books, onSearch, onClear }) => {
         options={options.map((option) => option.title)}
         onInputChange={handleInputChange}
         renderInput={(params) => (
-          <TextField 
-            {...params} 
-            label="Search for books" 
-            variant="outlined" 
-            fullWidth={isMobile} 
-            sx={{ backgroundColor: '#FFFFFF', width: isMobile ? '100%' : '800px' }} 
+          <TextField
+            {...params}
+            label="Search for books"
+            variant="outlined"
+            fullWidth={isMobile}
+            sx={{ backgroundColor: '#FFFFFF', width: isMobile ? '100%' : '800px' }}
           />
         )}
       />

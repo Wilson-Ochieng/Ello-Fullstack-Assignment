@@ -77,7 +77,12 @@ const SearchResult = ({ books, onAdd, searchPerformed }) => {
                             secondary={
                                 <Typography
                                     variant="body2"
-                                    sx={{ fontSize: isMobile ? 12 : 14,    ml: isMobile ? 1 : 0, }}
+                                    color="textSecondary"
+                                    sx={{
+                                        fontSize: isMobile ? 12 : 14,
+                                        ml: isMobile ? 1 : 0,
+                                       
+                                    }}
                                 >
                                     {`${book.author} - Reading Level: ${book.readingLevel}`}
                                 </Typography>

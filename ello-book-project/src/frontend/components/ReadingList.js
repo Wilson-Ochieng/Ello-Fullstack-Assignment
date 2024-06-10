@@ -31,7 +31,7 @@ const ReadingList = ({ readingList, onRemove }) => {
         <List>
           {readingList.map((book, index) => (
             <ListItem
-              key={`${book.title}-${index}`} 
+              key={`${book.title}-${index}`}
               sx={{ backgroundColor: '#FFFFFF', mb: 1, borderRadius: 1, flexDirection: isMobile ? 'column' : 'row' }}
             >
               <ListItemAvatar>
