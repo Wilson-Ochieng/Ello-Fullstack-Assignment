@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
-import { Container, Typography, Box } from '@mui/material';
+import { Container, Typography, Box, Card, CardContent } from '@mui/material';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -70,19 +70,26 @@ const App = () => {
         </Typography>
       </Box>
       <Box display="flex" flexDirection="column" alignItems="center">
-        <Box className="search-container">
+        <Box className="search-container" mb={4}>
           <BookSearch books={data.books} onSearch={handleSearch} onClear={handleClearSearchResults} />
         </Box>
-        <Box display="flex" flexDirection="row" justifyContent="center" alignItems="flex-start">
-          <Box className="results-container" mr={2}>
-            <SearchResult books={searchResults} onAdd={handleAddBook} searchPerformed={searchPerformed} />
-          </Box>
-          <Box className="reading-list-container" ml={2}>
-            <Typography variant="h5" color="#335C6E" fontWeight="bold" gutterBottom sx={{ ml: 2 }}>
-              Reading List
-            </Typography>
-            <ReadingList readingList={readingList} onRemove={handleRemoveBook} />
-          </Box>
+        <Box display="flex" flexDirection="row" justifyContent="center" alignItems="flex-start" gap={2}>
+          <Card className="results-container" sx={{ minWidth: 275 }}>
+            <CardContent>
+              <Typography variant="h5" color="#335C6E" fontWeight="bold" gutterBottom>
+                Search Results
+              </Typography>
+              <SearchResult books={searchResults} onAdd={handleAddBook} searchPerformed={searchPerformed} />
+            </CardContent>
+          </Card>
+          <Card className="reading-list-container" sx={{ minWidth: 275 }}>
+            <CardContent>
+              <Typography variant="h5" color="#335C6E" fontWeight="bold" gutterBottom>
+                Reading List
+              </Typography>
+              <ReadingList readingList={readingList} onRemove={handleRemoveBook} />
+            </CardContent>
+          </Card>
         </Box>
       </Box>
       <ToastContainer />
