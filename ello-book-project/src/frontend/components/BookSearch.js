@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Box } from '@mui/material';
+import { Autocomplete, TextField, Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const BookSearch = ({ onSearch, onClear }) => {
+const BookSearch = ({ books, onSearch, onClear }) => {
   const [query, setQuery] = useState('');
+  const [options, setOptions] = useState([]);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   let searchTimeout;
 
-  const handleInputChange = (e) => {
-    const value = e.target.value;
+  useEffect(() => {
+    if (query.trim() !== '') {
+      const filteredBooks = books.filter((book) =>
+        book.title.toLowerCase().includes(query.toLowerCase())
+      );
+      setOptions(filteredBooks);
+    } else {
+      setOptions([]);
+    }
+  }, [query, books]);
+
+  const handleInputChange = (e, value) => {
     setQuery(value);
 
     if (searchTimeout) {
@@ -36,13 +47,19 @@ const BookSearch = ({ onSearch, onClear }) => {
       flexDirection={isMobile ? 'column' : 'row'} 
       sx={{ px: isMobile ? 2 : 4 }}
     >
-      <TextField
-        label="Search for books"
-        variant="outlined"
-        value={query}
-        onChange={handleInputChange}
-        fullWidth={isMobile}
-        sx={{ backgroundColor: '#FFFFFF', width: isMobile ? '100%' : '800px' }}
+      <Autocomplete
+        freeSolo
+        options={options.map((option) => option.title)}
+        onInputChange={handleInputChange}
+        renderInput={(params) => (
+          <TextField 
+            {...params} 
+            label="Search for books" 
+            variant="outlined" 
+            fullWidth={isMobile} 
+            sx={{ backgroundColor: '#FFFFFF', width: isMobile ? '100%' : '800px' }} 
+          />
+        )}
       />
     </Box>
   );

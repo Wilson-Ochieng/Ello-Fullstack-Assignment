@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
-import { Container, Typography,Box } from '@mui/material';
+import { Container, Typography, Box } from '@mui/material';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import BookSearch from './frontend/components/BookSearch';
 import SearchResult from './frontend/components/SearchResult';
 import ReadingList from './frontend/components/ReadingList';
-
 
 const GET_BOOKS = gql`
   query Books {
@@ -28,7 +27,6 @@ const App = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-
 
   const handleSearch = (query) => {
     setSearchPerformed(true);
@@ -51,14 +49,15 @@ const App = () => {
     setReadingList(readingList.filter((book) => book.title !== title));
     toast.success('Book removed successfully');
   };
+
   const handleClearSearchResults = () => {
-    setSearchResults([]); 
+    setSearchResults([]);
     setSearchPerformed(false);
   };
 
   return (
     <Container>
-       <Box display="flex" justifyContent="center" alignItems="center" mt={10} mb={2}>
+      <Box display="flex" justifyContent="center" alignItems="center" mt={10} mb={2}>
         <Typography
           variant="h4"
           color="#335C6E"
@@ -72,9 +71,9 @@ const App = () => {
       </Box>
       <Box display="flex" flexDirection="column" alignItems="center">
         <Box className="search-container">
-        <BookSearch onSearch={handleSearch} onClear={handleClearSearchResults} />
+          <BookSearch books={data.books} onSearch={handleSearch} onClear={handleClearSearchResults} />
         </Box>
-        <Box display="flex" flexDirection="row" justifyContent="center">
+        <Box display="flex" flexDirection="row" justifyContent="center" alignItems="flex-start">
           <Box className="results-container" mr={2}>
             <SearchResult books={searchResults} onAdd={handleAddBook} searchPerformed={searchPerformed} />
           </Box>
