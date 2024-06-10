@@ -65,9 +65,9 @@
 }
 
 .results-container {
-  margin-bottom: 20px;
+  flex: 1;
 }
 
 .reading-list-container {
-  margin-bottom: 20px; 
+  width: 400px; 
 }
