@@ -73,40 +73,24 @@ const App = () => {
         <Box className="search-container" mb={4}>
           <BookSearch books={data.books} onSearch={handleSearch} onClear={handleClearSearchResults} />
         </Box>
-        {!searchPerformed && (
-          <Box display="flex" justifyContent="center" alignItems="center" mb={4}>
-            <Typography
-              variant="h5"
-              color="#335C6E"
-              fontWeight="bold"
-              fontFamily="Mulish"
-              fontSize={22}
-              textAlign="center"
-            >
-              Welcome to Ello Books! Start by searching for your favorite books.
-            </Typography>
-          </Box>
-        )}
-        {searchPerformed && (
-          <Box display="flex" flexDirection="row" justifyContent="center" alignItems="flex-start" gap={2}>
-            <Card className="results-container" sx={{ minWidth: 275 }}>
-              <CardContent>
-                <Typography variant="h5" color="#335C6E" fontWeight="bold" gutterBottom>
-                  Search Results
-                </Typography>
-                <SearchResult books={searchResults} onAdd={handleAddBook} searchPerformed={searchPerformed} />
-              </CardContent>
-            </Card>
-            <Card className="reading-list-container" sx={{ minWidth: 275 }}>
-              <CardContent>
-                <Typography variant="h5" color="#335C6E" fontWeight="bold" gutterBottom>
-                  Reading List
-                </Typography>
-                <ReadingList readingList={readingList} onRemove={handleRemoveBook} />
-              </CardContent>
-            </Card>
-          </Box>
-        )}
+        <Box display="flex" flexDirection="row" justifyContent="center" alignItems="flex-start" gap={2}>
+          <Card className="results-container" sx={{ minWidth: 275 }}>
+            <CardContent>
+              <Typography variant="h5" color="#335C6E" fontWeight="bold" gutterBottom>
+                Search Results
+              </Typography>
+              <SearchResult books={searchResults} onAdd={handleAddBook} searchPerformed={searchPerformed} />
+            </CardContent>
+          </Card>
+          <Card className="reading-list-container" sx={{ minWidth: 275 }}>
+            <CardContent>
+              <Typography variant="h5" color="#335C6E" fontWeight="bold" gutterBottom>
+                Reading List
+              </Typography>
+              <ReadingList readingList={readingList} onRemove={handleRemoveBook} />
+            </CardContent>
+          </Card>
+        </Box>
       </Box>
       <ToastContainer />
     </Container>
