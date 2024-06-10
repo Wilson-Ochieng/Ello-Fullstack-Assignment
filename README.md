@@ -18,9 +18,9 @@ Thanks for taking the time, and we hope to talk with you soon!
 npm install
 ```
 
-3. run 
+4. run 
 ```bash
-npm npm start
+ npm start
 ```
 
 
