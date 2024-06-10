@@ -57,19 +57,18 @@ const App = () => {
 
   return (
     <Container>
-      <Typography
-        variant="h4"
-        color="#335C6E"
-        fontWeight="bold"
-        fontFamily="Mulish"
-        fontSize={24}
-        marginTop={10}
-        marginBottom={5}
-        marginLeft={22}
-        gutterBottom
-      >
-        Book Assignment View
-      </Typography>
+       <Box display="flex" justifyContent="center" alignItems="center" mt={10} mb={2}>
+        <Typography
+          variant="h4"
+          color="#335C6E"
+          fontWeight="bold"
+          fontFamily="Mulish"
+          fontSize={28}
+          gutterBottom
+        >
+          Ello Books
+        </Typography>
+      </Box>
       <Box display="flex" flexDirection="column" alignItems="center">
         <Box className="search-container">
         <BookSearch onSearch={handleSearch} onClear={handleClearSearchResults} />
