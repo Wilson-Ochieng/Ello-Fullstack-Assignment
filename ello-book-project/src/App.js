@@ -53,6 +53,7 @@ const App = () => {
   };
   const handleClearSearchResults = () => {
     setSearchResults([]); 
+    setSearchPerformed(false);
   };
 
   return (
@@ -78,7 +79,7 @@ const App = () => {
             <SearchResult books={searchResults} onAdd={handleAddBook} searchPerformed={searchPerformed} />
           </Box>
           <Box className="reading-list-container" ml={2}>
-            <Typography variant="h5" color="#335C6E" fontWeight="bold" gutterBottom>
+            <Typography variant="h5" color="#335C6E" fontWeight="bold" gutterBottom sx={{ ml: 2 }}>
               Reading List
             </Typography>
             <ReadingList readingList={readingList} onRemove={handleRemoveBook} />
