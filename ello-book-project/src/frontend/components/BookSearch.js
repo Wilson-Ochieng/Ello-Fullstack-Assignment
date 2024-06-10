@@ -57,7 +57,7 @@ const BookSearch = ({ books, onSearch, onClear }) => {
             label="Search for books"
             variant="outlined"
             fullWidth={isMobile}
-            sx={{ backgroundColor: '#FFFFFF', width: isMobile ? '100%' : '800px' }}
+            sx={{ backgroundColor: '#FFFFFF', width: isMobile ? '150px' : '800px' }}
           />
         )}
       />
