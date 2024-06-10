@@ -45,7 +45,7 @@ const BookSearch = ({ books, onSearch, onClear }) => {
       gap={2} 
       mt={2} 
       flexDirection={isMobile ? 'column' : 'row'} 
-      sx={{ px: isMobile ? 2 : 4 }}
+      sx={{ px: isMobile ? 8 : 4 }}
     >
       <Autocomplete
         freeSolo

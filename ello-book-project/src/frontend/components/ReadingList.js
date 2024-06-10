@@ -31,7 +31,7 @@ const ReadingList = ({ readingList, onRemove }) => {
         <List>
           {readingList.map((book, index) => (
             <ListItem
-              key={`${book.title}-${index}`} // Ensure unique key
+              key={`${book.title}-${index}`} 
               sx={{ backgroundColor: '#FFFFFF', mb: 1, borderRadius: 1, flexDirection: isMobile ? 'column' : 'row' }}
             >
               <ListItemAvatar>
@@ -49,6 +49,7 @@ const ReadingList = ({ readingList, onRemove }) => {
               <Button
                 variant="contained"
                 color="primary"
+                size="small"
                 onClick={() => onRemove(book.title)}
                 sx={{ mt: isMobile ? 2 : 0, ml: isMobile ? 0 : 2 }}
               >
