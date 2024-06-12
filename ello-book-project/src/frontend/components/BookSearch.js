@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Autocomplete, TextField, Box } from '@mui/material';
+import { Autocomplete, TextField, Box, ListItem, ListItemAvatar, Avatar, ListItemText } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -49,8 +49,17 @@ const BookSearch = ({ books, onSearch, onClear }) => {
     >
       <Autocomplete
         freeSolo
-        options={options.map((option) => option.title)}
+        options={options}
+        getOptionLabel={(option) => option.title}
         onInputChange={handleInputChange}
+        renderOption={(props, option) => (
+          <ListItem {...props}>
+            <ListItemAvatar>
+              <Avatar src={option.image} alt={option.title} />
+            </ListItemAvatar>
+            <ListItemText primary={option.title} />
+          </ListItem>
+        )}
         renderInput={(params) => (
           <TextField
             {...params}
